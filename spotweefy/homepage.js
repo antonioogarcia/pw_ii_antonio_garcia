@@ -109,20 +109,6 @@ const logoutButton=document.getElementById('deslogar');
   // primeiro passo do CRUD: Create
   const bd = getDatabase(app);
 
-  /*async function importarUsuarios() {
-    const usersCollection = collection(dbFirestore, "users"); // Referência para a coleção `users`
-    const snapshot = await getDocs(usersCollection); // Pega os documentos da coleção `users`
-  
-    snapshot.forEach((doc) => {
-      const dados = doc.data(); // Pega os dados do documento
-      const nomeDeUsuario = dados.nomeDeUsuario; // Pega apenas o campo `nomeDeUsuario`
-      const caminho = `users/${doc.id}`; // Cria o caminho no RTDB usando o ID do documento
-  
-      // Grava o campo `nomeDeUsuario` no Realtime Database
-      set(ref(dbRealtime, caminho), { nomeDeUsuario })
-    }
-    )} */
-
   // Referencie o formulário e elementos necessários
   const reviewForm = document.getElementById("reviewForm");
   const post = document.getElementById("review");
@@ -168,7 +154,7 @@ const logoutButton=document.getElementById('deslogar');
   onChildAdded(reviewRef, (data) => {
     var li = document.createElement('li'); // Cria um elemento <li>
     li.id = data.key; // Define o ID como a chave do nó
-    li.innerHTML = "<li><span id='nomeDeUsuario'>: </span>" + data.val().post + "</li>"; // Define o texto como o valor do campo `checkPost`
+    li.innerHTML = "<li><span id='nomeDeUsuario'>. </span>" + data.val().post + "</li>"; // Define o texto como o valor do campo `checkPost`
     
     posts.appendChild(li); // Adiciona o <li> como filho de `checkPost`
   });
